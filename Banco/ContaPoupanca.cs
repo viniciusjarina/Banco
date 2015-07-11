@@ -12,10 +12,6 @@ namespace Banco
 		{
 		}
 
-		public ContaPoupanca (int numero):base (numero)
-		{
-		}
-
 		public override bool Saca (double valor)
 		{
 			double taxa = 0.00;

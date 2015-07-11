@@ -78,8 +78,14 @@
 			// 
 			// numeroConta
 			// 
+			this.numeroConta.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.numeroConta.Location = new System.Drawing.Point(83, 75);
 			this.numeroConta.Name = "numeroConta";
+			this.numeroConta.ReadOnly = true;
 			this.numeroConta.Size = new System.Drawing.Size(155, 20);
 			this.numeroConta.TabIndex = 3;
 			// 

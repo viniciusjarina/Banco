@@ -12,9 +12,6 @@ namespace Banco
 		{
 		}
 
-		public ContaCorrente (int numero): base (numero)
-		{
-		}
 		public override void Deposita (double valor)
 		{
 			double taxa = 0.10;

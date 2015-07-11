@@ -8,15 +8,20 @@ namespace Banco
 {
 	public abstract class Conta
 	{
+		static int numeroDeContas;
+
 		public Conta ()
 		{
+			Conta.numeroDeContas++;
 			Titular = new Cliente ();
+			Numero = Conta.numeroDeContas;
 		}
 
-		public Conta (int numero):this()
+		public static int ProximaConta ()
 		{
-			Numero = numero;
+			return Conta.numeroDeContas + 1;
 		}
+
 		public int Numero { get; set; }
 
 		public double  Saldo { get; protected set; }

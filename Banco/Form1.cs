@@ -130,19 +130,19 @@ namespace Banco
 		{
 			contas = new Conta [10];
 			// Form1_Load é chamado quando exibimos o nosso Form pela primeira vez
-			this.contas [0] = new ContaCorrente (1);
+			this.contas [0] = new ContaCorrente ();
 			this.contas [0].Titular.Nome = "Anders Hejlsberg";
 			this.contas [0].Deposita (1000.1);
 
-			this.contas [1] = new ContaCorrente (2);
+			this.contas [1] = new ContaCorrente ();
 			this.contas [1].Titular.Nome = "Guilherme Silveira";
 			this.contas [1].Deposita (200);
 
-			this.contas [2] = new ContaPoupanca (3);
+			this.contas [2] = new ContaPoupanca ();
 			this.contas [2].Titular.Nome = "Mauricio Aniche";
 			this.contas [2].Deposita (300);
 
-			this.contas [3] = new ContaCorrente (4);
+			this.contas [3] = new ContaCorrente ();
 			this.contas [3].Titular.Nome = "Victor Harada";
 
 			AtualizaConta ();
@@ -167,12 +167,12 @@ namespace Banco
 			}
 
 			EditarConta editar = new EditarConta ();
+			editar.numeroConta.Value = Conta.ProximaConta ();
 			var result = editar.ShowDialog ();
 			if (result != DialogResult.OK)
 				return;
 
-			int numeroConta = (int)editar.numeroConta.Value;
-			Conta novaConta = new ContaCorrente (numeroConta);
+			Conta novaConta = new ContaCorrente ();
 			novaConta.Titular.Nome = editar.titularNome.Text;
 			contas [novaPosicao] = novaConta;
 
