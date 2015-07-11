@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banco
 {
-	public class Conta
+	public abstract class Conta
 	{
 		public Conta ()
 		{
