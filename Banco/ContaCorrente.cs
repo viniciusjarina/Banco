@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banco
 {
-	public class ContaCorrente : Conta
+	public class ContaCorrente : Conta, ITributavel
 	{
 		public ContaCorrente ()
 		{
@@ -34,5 +34,9 @@ namespace Banco
 			return true;
 		}
 
+		public double CalculaTributos ()
+		{
+			return Saldo * 0.05;
+		}
 	}
 }

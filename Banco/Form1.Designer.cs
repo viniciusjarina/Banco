@@ -43,12 +43,14 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.comboContas = new System.Windows.Forms.ComboBox();
 			this.cadastrarContaButton = new System.Windows.Forms.Button();
+			this.totalizarTributosButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.totalizarTributosButton);
 			this.groupBox1.Controls.Add(this.totalizarContasButton);
 			this.groupBox1.Controls.Add(this.sacaButton);
 			this.groupBox1.Controls.Add(this.depositaButton);
@@ -62,8 +64,8 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(17, 67);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(409, 243);
-			this.groupBox1.TabIndex = 0;
+			this.groupBox1.Size = new System.Drawing.Size(409, 267);
+			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Conta";
 			// 
@@ -205,11 +207,21 @@
 			this.cadastrarContaButton.UseVisualStyleBackColor = true;
 			this.cadastrarContaButton.Click += new System.EventHandler(this.cadastrarContaButton_Click);
 			// 
+			// totalizarTributosButton
+			// 
+			this.totalizarTributosButton.Location = new System.Drawing.Point(291, 238);
+			this.totalizarTributosButton.Name = "totalizarTributosButton";
+			this.totalizarTributosButton.Size = new System.Drawing.Size(104, 23);
+			this.totalizarTributosButton.TabIndex = 11;
+			this.totalizarTributosButton.Text = "Tota&lizar Tributos";
+			this.totalizarTributosButton.UseVisualStyleBackColor = true;
+			this.totalizarTributosButton.Click += new System.EventHandler(this.totalizarTributosButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(440, 327);
+			this.ClientSize = new System.Drawing.Size(442, 346);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "Form1";
@@ -241,6 +253,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox comboContas;
 		private System.Windows.Forms.Button cadastrarContaButton;
+		private System.Windows.Forms.Button totalizarTributosButton;
 	}
 }
 
