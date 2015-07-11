@@ -40,8 +40,9 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.comboContas = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.comboContas = new System.Windows.Forms.ComboBox();
+			this.cadastrarContaButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -165,6 +166,7 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.cadastrarContaButton);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.comboContas);
 			this.groupBox2.Location = new System.Drawing.Point(17, 13);
@@ -173,16 +175,6 @@
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "&Busca";
-			// 
-			// comboContas
-			// 
-			this.comboContas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboContas.FormattingEnabled = true;
-			this.comboContas.Location = new System.Drawing.Point(80, 20);
-			this.comboContas.Name = "comboContas";
-			this.comboContas.Size = new System.Drawing.Size(315, 21);
-			this.comboContas.TabIndex = 1;
-			this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
 			// 
 			// label5
 			// 
@@ -193,11 +185,31 @@
 			this.label5.TabIndex = 0;
 			this.label5.Text = "Conta";
 			// 
+			// comboContas
+			// 
+			this.comboContas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboContas.FormattingEnabled = true;
+			this.comboContas.Location = new System.Drawing.Point(80, 20);
+			this.comboContas.Name = "comboContas";
+			this.comboContas.Size = new System.Drawing.Size(234, 21);
+			this.comboContas.TabIndex = 1;
+			this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
+			// 
+			// cadastrarContaButton
+			// 
+			this.cadastrarContaButton.Location = new System.Drawing.Point(320, 19);
+			this.cadastrarContaButton.Name = "cadastrarContaButton";
+			this.cadastrarContaButton.Size = new System.Drawing.Size(75, 23);
+			this.cadastrarContaButton.TabIndex = 2;
+			this.cadastrarContaButton.Text = "Cadastrar...";
+			this.cadastrarContaButton.UseVisualStyleBackColor = true;
+			this.cadastrarContaButton.Click += new System.EventHandler(this.cadastrarContaButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(438, 322);
+			this.ClientSize = new System.Drawing.Size(440, 327);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "Form1";
@@ -228,6 +240,7 @@
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox comboContas;
+		private System.Windows.Forms.Button cadastrarContaButton;
 	}
 }
 

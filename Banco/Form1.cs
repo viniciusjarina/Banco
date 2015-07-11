@@ -116,6 +116,9 @@ namespace Banco
 
 		void AtualizaComboContas ()
 		{
+			// Remove os elementos existentes antes de atualizar.
+			comboContas.Items.Clear ();
+
 			foreach (Conta conta in contas) {
 				if (conta == null)
 					break;
@@ -153,6 +156,36 @@ namespace Banco
 			contaSelectionada = comboContas.SelectedIndex;
 
 			AtualizaConta ();
+		}
+
+		private void cadastrarContaButton_Click (object sender, EventArgs e)
+		{
+			int novaPosicao = PegaProximaPosicao ();
+			if (novaPosicao == -1) {
+				MessageBox.Show ("Não há mais espaço para criar contas");
+				return;
+			}
+
+			EditarConta editar = new EditarConta ();
+			var result = editar.ShowDialog ();
+			if (result != DialogResult.OK)
+				return;
+
+			int numeroConta = (int)editar.numeroConta.Value;
+			Conta novaConta = new ContaCorrente (numeroConta);
+			novaConta.Titular.Nome = editar.titularNome.Text;
+			contas [novaPosicao] = novaConta;
+
+			AtualizaComboContas ();
+		}
+
+		int PegaProximaPosicao ()
+		{
+			for (int i = 0 ; i < contas.Length ; i++) {
+				if (contas [i] == null)
+					return i;
+			}
+			return -1;
 		}
 	}
 }
