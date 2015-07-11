@@ -19,17 +19,11 @@ namespace Banco
 		}
 		public int Numero { get; set; }
 
-		public double  Saldo { get; private set; }
+		public double  Saldo { get; protected set; }
 
 		public Cliente Titular { get; set; }
 
-		public virtual bool Saca (double valor)
-		{
-			if (valor > Saldo)
-				return false;
-			Saldo -= valor;
-			return true;
-		}
+		public abstract bool Saca (double valor);
 
 		public virtual void Deposita (double valor)
 		{

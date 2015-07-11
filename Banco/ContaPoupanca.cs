@@ -18,8 +18,14 @@ namespace Banco
 
 		public override bool Saca (double valor)
 		{
-			double taxa = 0.10;
-			return base.Saca (valor + taxa);
+			double taxa = 0.00;
+			valor += taxa;
+
+			if (valor > Saldo)
+				return false;
+			Saldo -= valor;
+
+			return true;
 		}
 
 		public override void CalculaRendimento ()

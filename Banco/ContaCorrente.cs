@@ -26,7 +26,12 @@ namespace Banco
 		{
 			double taxa = 0.05;
 			valor += taxa;
-			return base.Saca (valor);
+
+			if (valor > Saldo)
+				return false;
+			Saldo -= valor;
+
+			return true;
 		}
 
 	}
