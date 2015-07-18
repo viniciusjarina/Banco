@@ -28,11 +28,11 @@
 		private void InitializeComponent ()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.titularNome = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
 			this.numeroConta = new System.Windows.Forms.NumericUpDown();
-			this.button1 = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.titularNome = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.okButton = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeroConta)).BeginInit();
@@ -51,31 +51,6 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "&Conta";
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(20, 32);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(39, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Titular:";
-			// 
-			// titularNome
-			// 
-			this.titularNome.Location = new System.Drawing.Point(83, 28);
-			this.titularNome.Name = "titularNome";
-			this.titularNome.Size = new System.Drawing.Size(155, 20);
-			this.titularNome.TabIndex = 1;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(20, 80);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(47, 13);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Número:";
-			// 
 			// numeroConta
 			// 
 			this.numeroConta.Increment = new decimal(new int[] {
@@ -89,15 +64,40 @@
 			this.numeroConta.Size = new System.Drawing.Size(155, 20);
 			this.numeroConta.TabIndex = 3;
 			// 
-			// button1
+			// label2
 			// 
-			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(116, 138);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "&OK";
-			this.button1.UseVisualStyleBackColor = true;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(20, 80);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(47, 13);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Número:";
+			// 
+			// titularNome
+			// 
+			this.titularNome.Location = new System.Drawing.Point(83, 28);
+			this.titularNome.Name = "titularNome";
+			this.titularNome.Size = new System.Drawing.Size(155, 20);
+			this.titularNome.TabIndex = 1;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(20, 32);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(39, 13);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Titular:";
+			// 
+			// okButton
+			// 
+			this.okButton.Location = new System.Drawing.Point(116, 138);
+			this.okButton.Name = "okButton";
+			this.okButton.Size = new System.Drawing.Size(75, 23);
+			this.okButton.TabIndex = 1;
+			this.okButton.Text = "&OK";
+			this.okButton.UseVisualStyleBackColor = true;
+			this.okButton.Click += new System.EventHandler(this.okButton_Click);
 			// 
 			// button2
 			// 
@@ -115,7 +115,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 170);
 			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.okButton);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "EditarConta";
 			this.Text = "Cadastrar Conta";
@@ -131,7 +131,7 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button button2;
 		public System.Windows.Forms.NumericUpDown numeroConta;
 		public System.Windows.Forms.TextBox titularNome;

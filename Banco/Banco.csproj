@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Busca\GeradorDeDevedores.cs" />
     <Compile Include="Cliente\Cliente.cs" />
     <Compile Include="Contas\Conta.cs" />
     <Compile Include="Contas\ContaCorrente.cs" />
