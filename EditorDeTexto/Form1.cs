@@ -45,5 +45,17 @@ namespace EditorDeTexto
 			// Ou poderíamos usar ReadAddText se o arquivo fosse pequeno.
 			// textoConteudo.Text = File.ReadAllText ("texto.txt");
 		}
+
+		private void botaoBusca_Click (object sender, EventArgs e)
+		{
+			string busca = textoBusca.Text;
+			string textoDoEditor = textoConteudo.Text;
+			int resultado = textoDoEditor.IndexOf (busca); 
+			if (resultado >= 0) {
+				MessageBox.Show ("achei o texto " + busca);
+			} else {
+				MessageBox.Show ("não achei");
+			}
+		}
 	}
 }
