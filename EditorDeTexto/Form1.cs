@@ -35,12 +35,12 @@ namespace EditorDeTexto
 			if (!File.Exists ("texto.txt"))
 				return;
 
-			Stream entrada = File.Open ("texto.txt", FileMode.Open); StreamReader leitor = new StreamReader (entrada);
-			string linha = leitor.ReadLine ();
-			while (linha != null) {
-				textoConteudo.Text += linha;
-				linha = leitor.ReadLine ();
-			}
+			Stream entrada = File.Open ("texto.txt", FileMode.Open); 
+			StreamReader leitor = new StreamReader (entrada);
+
+			string conteudo = leitor.ReadToEnd ();
+			textoConteudo.Text = conteudo;
+
 			leitor.Close ();
 			entrada.Close ();
 			// Ou poderíamos usar ReadAddText se o arquivo fosse pequeno.
