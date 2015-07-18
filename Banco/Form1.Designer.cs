@@ -47,12 +47,14 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.textBuscaTitular = new System.Windows.Forms.TextBox();
 			this.buscaButton = new System.Windows.Forms.Button();
+			this.relatorioButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.relatorioButton);
 			this.groupBox1.Controls.Add(this.totalizarTributosButton);
 			this.groupBox1.Controls.Add(this.totalizarContasButton);
 			this.groupBox1.Controls.Add(this.sacaButton);
@@ -249,6 +251,16 @@
 			this.buscaButton.UseVisualStyleBackColor = true;
 			this.buscaButton.Click += new System.EventHandler(this.buscaButton_Click);
 			// 
+			// relatorioButton
+			// 
+			this.relatorioButton.Location = new System.Drawing.Point(21, 238);
+			this.relatorioButton.Name = "relatorioButton";
+			this.relatorioButton.Size = new System.Drawing.Size(75, 23);
+			this.relatorioButton.TabIndex = 12;
+			this.relatorioButton.Text = "&Relatório...";
+			this.relatorioButton.UseVisualStyleBackColor = true;
+			this.relatorioButton.Click += new System.EventHandler(this.relatorioButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +301,7 @@
 		private System.Windows.Forms.Button buscaButton;
 		private System.Windows.Forms.TextBox textBuscaTitular;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Button relatorioButton;
 	}
 }
 

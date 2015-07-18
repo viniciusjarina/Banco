@@ -138,7 +138,7 @@ namespace Banco
 			// Form1_Load é chamado quando exibimos o nosso Form pela primeira vez
 			Conta conta = new ContaCorrente ();
 			conta.Titular.Nome = "Anders Hejlsberg";
-			conta.Deposita (1000.1);
+			conta.Deposita (5200.1);
 			AdicionaConta (conta);
 
 			conta = new ContaCorrente ();
@@ -148,7 +148,17 @@ namespace Banco
 
 			conta = new ContaPoupanca ();
 			conta.Titular.Nome = "Mauricio Aniche";
-			conta.Deposita (300);
+			conta.Deposita (5300);
+			AdicionaConta (conta);
+
+			conta = new ContaCorrente ();
+			conta.Titular.Nome = "Paulo Silveira";
+			conta.Deposita (2200);
+			AdicionaConta (conta);
+
+			conta = new ContaCorrente ();
+			conta.Titular.Nome = "Bjarne Stroustrup";
+			conta.Deposita (9000);
 			AdicionaConta (conta);
 
 			conta = new ContaCorrente ();
@@ -197,7 +207,7 @@ namespace Banco
 		{
 			string nomeTitular = textBuscaTitular.Text;
 			Conta contaEncontrada = null;
-			// Aqui poderíamos buscar fazendo, no entando se a Conta não existi Dictionary irá lançar uma exceção
+			// Aqui poderíamos buscar fazendo, no entanto se a Conta não existir Dictionary irá lançar uma exceção
 		//  Conta conta = dicionario [nomeTitular];
 
 			// Para isso utilizamos o método TryGetValue que returna true caso encontre o elemento pela chave.
@@ -206,8 +216,13 @@ namespace Banco
 				MessageBox.Show ("Conta não encontrada pelo nome:" + nomeTitular);
 				return;
 			}
-
 			comboContas.SelectedItem = contaEncontrada;
+		}
+
+		private void relatorioButton_Click (object sender, EventArgs e)
+		{
+			FormRelatorios form = new FormRelatorios (contas);
+			form.ShowDialog ();
 		}
 	}
 }
