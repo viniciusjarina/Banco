@@ -15,7 +15,7 @@ namespace Banco
 {
 	public partial class Form1 : Form
 	{
-		Conta [] contas;
+		List<Conta> contas = new List<Conta> ();
 		Conta contaSelectionada = null;
 
 		public Form1 ()
@@ -127,31 +127,31 @@ namespace Banco
 			// Remove os elementos existentes antes de atualizar.
 			comboContas.Items.Clear ();
 
-			foreach (Conta conta in contas) {
-				if (conta == null)
-					break;
+			foreach (Conta conta in contas)
 				comboContas.Items.Add (conta);
-			}
 		}
 
 		private void Form1_Load (object sender, EventArgs e)
 		{
-			contas = new Conta [10];
 			// Form1_Load é chamado quando exibimos o nosso Form pela primeira vez
-			this.contas [0] = new ContaCorrente ();
-			this.contas [0].Titular.Nome = "Anders Hejlsberg";
-			this.contas [0].Deposita (1000.1);
+			Conta conta = new ContaCorrente ();
+			conta.Titular.Nome = "Anders Hejlsberg";
+			conta.Deposita (1000.1);
+			contas.Add (conta);
 
-			this.contas [1] = new ContaCorrente ();
-			this.contas [1].Titular.Nome = "Guilherme Silveira";
-			this.contas [1].Deposita (200);
+			conta = new ContaCorrente ();
+			conta.Titular.Nome = "Guilherme Silveira";
+			conta.Deposita (200);
+			contas.Add (conta);
 
-			this.contas [2] = new ContaPoupanca ();
-			this.contas [2].Titular.Nome = "Mauricio Aniche";
-			this.contas [2].Deposita (300);
+			conta = new ContaPoupanca ();
+			conta.Titular.Nome = "Mauricio Aniche";
+			conta.Deposita (300);
+			contas.Add (conta);
 
-			this.contas [3] = new ContaCorrente ();
-			this.contas [3].Titular.Nome = "Victor Harada";
+			conta = new ContaCorrente ();
+			conta.Titular.Nome = "Victor Harada";
+			contas.Add (conta);
 
 			AtualizaConta ();
 			AtualizaComboContas ();
@@ -168,12 +168,6 @@ namespace Banco
 
 		private void cadastrarContaButton_Click (object sender, EventArgs e)
 		{
-			int novaPosicao = PegaProximaPosicao ();
-			if (novaPosicao == -1) {
-				MessageBox.Show ("Não há mais espaço para criar contas");
-				return;
-			}
-
 			EditarConta editar = new EditarConta ();
 			editar.numeroConta.Value = Conta.ProximaConta ();
 			var result = editar.ShowDialog ();
@@ -182,18 +176,9 @@ namespace Banco
 
 			Conta novaConta = new ContaCorrente ();
 			novaConta.Titular.Nome = editar.titularNome.Text;
-			contas [novaPosicao] = novaConta;
+			contas.Add(novaConta);
 
 			AtualizaComboContas ();
-		}
-
-		int PegaProximaPosicao ()
-		{
-			for (int i = 0 ; i < contas.Length ; i++) {
-				if (contas [i] == null)
-					return i;
-			}
-			return -1;
 		}
 
 		private void totalizarTributosButton_Click (object sender, EventArgs e)
