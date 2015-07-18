@@ -33,6 +33,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.textoBusca = new System.Windows.Forms.TextBox();
 			this.botaoBusca = new System.Windows.Forms.Button();
+			this.textoReplace = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.botaoReplace = new System.Windows.Forms.Button();
+			this.botaoUpper = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -56,12 +60,15 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.botaoReplace);
+			this.groupBox1.Controls.Add(this.textoReplace);
+			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.botaoBusca);
 			this.groupBox1.Controls.Add(this.textoBusca);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(94, 264);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(314, 87);
+			this.groupBox1.Size = new System.Drawing.Size(314, 103);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "&Find and Replace";
@@ -77,14 +84,14 @@
 			// 
 			// textoBusca
 			// 
-			this.textoBusca.Location = new System.Drawing.Point(44, 20);
+			this.textoBusca.Location = new System.Drawing.Point(57, 20);
 			this.textoBusca.Name = "textoBusca";
-			this.textoBusca.Size = new System.Drawing.Size(264, 20);
+			this.textoBusca.Size = new System.Drawing.Size(251, 20);
 			this.textoBusca.TabIndex = 1;
 			// 
 			// botaoBusca
 			// 
-			this.botaoBusca.Location = new System.Drawing.Point(9, 57);
+			this.botaoBusca.Location = new System.Drawing.Point(9, 72);
 			this.botaoBusca.Name = "botaoBusca";
 			this.botaoBusca.Size = new System.Drawing.Size(75, 23);
 			this.botaoBusca.TabIndex = 2;
@@ -92,11 +99,48 @@
 			this.botaoBusca.UseVisualStyleBackColor = true;
 			this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
 			// 
+			// textoReplace
+			// 
+			this.textoReplace.Location = new System.Drawing.Point(57, 44);
+			this.textoReplace.Name = "textoReplace";
+			this.textoReplace.Size = new System.Drawing.Size(251, 20);
+			this.textoReplace.TabIndex = 4;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(6, 47);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(50, 13);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Replace:";
+			// 
+			// botaoReplace
+			// 
+			this.botaoReplace.Location = new System.Drawing.Point(91, 72);
+			this.botaoReplace.Name = "botaoReplace";
+			this.botaoReplace.Size = new System.Drawing.Size(75, 23);
+			this.botaoReplace.TabIndex = 5;
+			this.botaoReplace.Text = "&Replace...";
+			this.botaoReplace.UseVisualStyleBackColor = true;
+			this.botaoReplace.Click += new System.EventHandler(this.botaoReplace_Click);
+			// 
+			// botaoUpper
+			// 
+			this.botaoUpper.Location = new System.Drawing.Point(13, 336);
+			this.botaoUpper.Name = "botaoUpper";
+			this.botaoUpper.Size = new System.Drawing.Size(75, 23);
+			this.botaoUpper.TabIndex = 3;
+			this.botaoUpper.Text = "&Maiúsculas";
+			this.botaoUpper.UseVisualStyleBackColor = true;
+			this.botaoUpper.Click += new System.EventHandler(this.botaoUpper_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(420, 359);
+			this.ClientSize = new System.Drawing.Size(420, 379);
+			this.Controls.Add(this.botaoUpper);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.gravarButton);
 			this.Controls.Add(this.textoConteudo);
@@ -118,6 +162,10 @@
 		private System.Windows.Forms.Button botaoBusca;
 		private System.Windows.Forms.TextBox textoBusca;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button botaoReplace;
+		private System.Windows.Forms.TextBox textoReplace;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button botaoUpper;
 	}
 }
 

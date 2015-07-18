@@ -50,12 +50,26 @@ namespace EditorDeTexto
 		{
 			string busca = textoBusca.Text;
 			string textoDoEditor = textoConteudo.Text;
-			int resultado = textoDoEditor.IndexOf (busca); 
+			int resultado = textoDoEditor.IndexOf (busca);
+
 			if (resultado >= 0) {
 				MessageBox.Show ("achei o texto " + busca);
 			} else {
 				MessageBox.Show ("não achei");
 			}
+		}
+
+		private void botaoReplace_Click (object sender, EventArgs e)
+		{
+			string busca = textoBusca.Text;
+			string replace = textoReplace.Text;
+			string textoDoEditor = textoConteudo.Text;
+			textoConteudo.Text = textoDoEditor.Replace (busca, replace);			
+		}
+
+		private void botaoUpper_Click (object sender, EventArgs e)
+		{
+			textoConteudo.Text = textoConteudo.Text.ToUpper ();
 		}
 	}
 }
