@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banco
+namespace Banco.Tributos
 {
 	public interface ITributavel
 	{

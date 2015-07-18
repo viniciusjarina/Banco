@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banco
+namespace Banco.Contas
 {
-	class SeguroDeVida : ITributavel
+	public class SaldoInsuficienteException : Exception
 	{
-		public double CalculaTributos ()
-		{
-			return 42.0;
-		}
 	}
 }

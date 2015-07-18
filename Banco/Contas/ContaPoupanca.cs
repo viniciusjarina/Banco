@@ -4,19 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banco
+namespace Banco.Contas
 {
-	public class ContaCorrente : Conta, ITributavel
+	public class ContaPoupanca : Conta
 	{
-		public ContaCorrente ()
+		public ContaPoupanca ()
 		{
-		}
-
-		public override void Deposita (double valor)
-		{
-			double taxa = 0.10;
-			valor -= taxa;
-			base.Deposita (valor);
 		}
 
 		public override void Saca (double valor)
@@ -24,7 +17,7 @@ namespace Banco
 			if (valor <= 0.0)
 				throw new ArgumentException ("valor");
 
-			double taxa = 0.05;
+			double taxa = 0.00;
 			valor += taxa;
 
 			if (valor > Saldo)
@@ -32,9 +25,10 @@ namespace Banco
 			Saldo -= valor;
 		}
 
-		public double CalculaTributos ()
+		public override void CalculaRendimento ()
 		{
-			return Saldo * 0.05;
+			double rendimento = Saldo * 0.05;
+			Deposita (rendimento);
 		}
 	}
 }
