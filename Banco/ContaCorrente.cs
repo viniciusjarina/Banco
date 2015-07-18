@@ -19,16 +19,17 @@ namespace Banco
 			base.Deposita (valor);
 		}
 
-		public override bool Saca (double valor)
+		public override void Saca (double valor)
 		{
+			if (valor <= 0.0)
+				throw new ArgumentException ("valor");
+
 			double taxa = 0.05;
 			valor += taxa;
 
 			if (valor > Saldo)
-				return false;
+				throw new SaldoInsuficienteException ();
 			Saldo -= valor;
-
-			return true;
 		}
 
 		public double CalculaTributos ()

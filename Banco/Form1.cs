@@ -55,12 +55,17 @@ namespace Banco
 			Conta conta = contas [contaSelectionada];
 
 			double valor = Convert.ToDouble (valorText.Text);
-			bool saqueOk = conta.Saca (valor);
-			if (!saqueOk) {
+
+			if (valor <= 0.0) {
+				MessageBox.Show ("Valor inválido a ser sacado");
+				return;
+			}
+			try {
+				conta.Saca (valor);
+			} catch (SaldoInsuficienteException) {
 				MessageBox.Show ("Não foi possível sacar, verifique o saldo");
 				return;
 			}
-
 			AtualizaSaldoDaConta ();
 		}
 

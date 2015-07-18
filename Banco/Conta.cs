@@ -28,23 +28,21 @@ namespace Banco
 
 		public Cliente Titular { get; set; }
 
-		public abstract bool Saca (double valor);
+		public abstract void Saca (double valor);
 
 		public virtual void Deposita (double valor)
 		{
 			Saldo += valor;
 		}
 
-		public bool Transfere (Conta destino, double valor)
+		public void Transfere (Conta destino, double valor)
 		{
 			Conta origem = this;
 			// Primeiro faz o saque da própria conta (this)
-			bool saqueOk = this.Saca (valor);
-		 // bool saqueOk = origem.Saca (valor);
-			if (!saqueOk)
-				return false; // Caso o saque tenha falhado.
+			this.Saca (valor);
+		 // origem.Saca (valor);
+
 			destino.Deposita (valor);
-			return true;
 		}
 
 		public virtual void CalculaRendimento ()
