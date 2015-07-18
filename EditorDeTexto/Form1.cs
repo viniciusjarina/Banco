@@ -20,12 +20,12 @@ namespace EditorDeTexto
 
 		private void gravarButton_Click (object sender, EventArgs e)
 		{
-			Stream saida = File.Open ("texto.txt", FileMode.Create);
-			StreamWriter escritor = new StreamWriter (saida); 
-			escritor.Write (textoConteudo.Text); 
-			escritor.Close ();
-			saida.Close ();
-
+			using (Stream saida = File.Open ("texto.txt", FileMode.Create)) {
+				using (StreamWriter escritor = new StreamWriter (saida)) {
+					escritor.Write (textoConteudo.Text);
+				}
+			}
+			
 			// Ou ainda
 			// File.WriteAllText ("texto.txt", textoConteudo.Text);
 		}
@@ -35,14 +35,13 @@ namespace EditorDeTexto
 			if (!File.Exists ("texto.txt"))
 				return;
 
-			Stream entrada = File.Open ("texto.txt", FileMode.Open); 
-			StreamReader leitor = new StreamReader (entrada);
+			using (Stream entrada = File.Open ("texto.txt", FileMode.Open)) {
+				using (StreamReader leitor = new StreamReader (entrada)) {
+					string conteudo = leitor.ReadToEnd ();
+					textoConteudo.Text = conteudo;
+				}
+			}
 
-			string conteudo = leitor.ReadToEnd ();
-			textoConteudo.Text = conteudo;
-
-			leitor.Close ();
-			entrada.Close ();
 			// Ou poderíamos usar ReadAddText se o arquivo fosse pequeno.
 			// textoConteudo.Text = File.ReadAllText ("texto.txt");
 		}
