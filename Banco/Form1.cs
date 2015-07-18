@@ -16,7 +16,7 @@ namespace Banco
 	public partial class Form1 : Form
 	{
 		Conta [] contas;
-		int contaSelectionada = -1;
+		Conta contaSelectionada = null;
 
 		public Form1 ()
 		{
@@ -25,7 +25,7 @@ namespace Banco
 
 		private void depositaButton_Click (object sender, EventArgs e)
 		{
-			if (contaSelectionada == -1) {
+			if (contaSelectionada == null) {
 				MessageBox.Show ("Por favor selecione alguma conta para realizar a operação");
 				return;
 			}
@@ -35,7 +35,7 @@ namespace Banco
 				return;
 			}
 
-			Conta conta = contas [contaSelectionada];
+			Conta conta = contaSelectionada;
 
 			double valor = Convert.ToDouble (valorText.Text);
 			conta.Deposita (valor);
@@ -45,7 +45,7 @@ namespace Banco
 
 		private void sacaButton_Click (object sender, EventArgs e)
 		{
-			if (contaSelectionada == -1) {
+			if (contaSelectionada == null) {
 				MessageBox.Show ("Por favor selecione alguma conta para realizar a operação");
 				return;
 			}
@@ -55,7 +55,7 @@ namespace Banco
 				return;
 			}
 
-			Conta conta = contas [contaSelectionada];
+			Conta conta = contaSelectionada;
 
 			double valor = Convert.ToDouble (valorText.Text);
 
@@ -95,10 +95,10 @@ namespace Banco
 			titularText.Text = "";
 			numeroText.Text = "";
 			// Se nenhuma conta esta selecionada só apaga o campo Valor.
-			if (contaSelectionada == -1)
+			if (contaSelectionada == null)
 				return;
 
-			Conta conta = contas [contaSelectionada];
+			Conta conta = contaSelectionada;
 
 			titularText.Text = conta.Titular.Nome;
 			numeroText.Text = Convert.ToString (conta.Numero);
@@ -109,10 +109,10 @@ namespace Banco
 		{
 			valorText.Text = "";
 			// Se nenhuma conta esta selecionada só apaga o campo Valor.
-			if (contaSelectionada == -1)
+			if (contaSelectionada == null)
 				return;
 
-			Conta conta = contas [contaSelectionada];
+			Conta conta = contaSelectionada;
 			saldoText.Text = Convert.ToString (conta.Saldo);
 		}
 
@@ -130,7 +130,7 @@ namespace Banco
 			foreach (Conta conta in contas) {
 				if (conta == null)
 					break;
-				comboContas.Items.Add (conta.Titular.Nome);
+				comboContas.Items.Add (conta);
 			}
 		}
 
@@ -161,7 +161,7 @@ namespace Banco
 
 		private void comboContas_SelectedIndexChanged (object sender, EventArgs e)
 		{
-			contaSelectionada = comboContas.SelectedIndex;
+			contaSelectionada = (Conta)comboContas.SelectedItem;
 
 			AtualizaConta ();
 		}

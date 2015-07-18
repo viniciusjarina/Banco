@@ -50,5 +50,16 @@ namespace Banco.Contas
 		{
 
 		}
+
+		public override bool Equals (object obj)
+		{
+			Conta conta = obj as Conta;
+			return conta != null && this.Numero == conta.Numero;
+		}
+
+		public override string ToString ()
+		{
+			return "Titular: " + Titular.Nome;
+		}
 	}
 }
