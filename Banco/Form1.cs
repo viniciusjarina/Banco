@@ -224,5 +224,12 @@ namespace Banco
 			FormRelatorios form = new FormRelatorios (contas);
 			form.ShowDialog ();
 		}
+
+		private void buttonXML_Click (object sender, EventArgs e)
+		{
+			if (contaSelectionada == null)
+				return;
+			MessageBox.Show (contaSelectionada.AsXml());
+		}
 	}
 }

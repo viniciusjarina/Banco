@@ -48,12 +48,14 @@
 			this.textBuscaTitular = new System.Windows.Forms.TextBox();
 			this.buscaButton = new System.Windows.Forms.Button();
 			this.relatorioButton = new System.Windows.Forms.Button();
+			this.buttonXML = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.buttonXML);
 			this.groupBox1.Controls.Add(this.relatorioButton);
 			this.groupBox1.Controls.Add(this.totalizarTributosButton);
 			this.groupBox1.Controls.Add(this.totalizarContasButton);
@@ -261,6 +263,16 @@
 			this.relatorioButton.UseVisualStyleBackColor = true;
 			this.relatorioButton.Click += new System.EventHandler(this.relatorioButton_Click);
 			// 
+			// buttonXML
+			// 
+			this.buttonXML.Location = new System.Drawing.Point(105, 238);
+			this.buttonXML.Name = "buttonXML";
+			this.buttonXML.Size = new System.Drawing.Size(93, 23);
+			this.buttonXML.TabIndex = 13;
+			this.buttonXML.Text = "&Como XML...";
+			this.buttonXML.UseVisualStyleBackColor = true;
+			this.buttonXML.Click += new System.EventHandler(this.buttonXML_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +314,7 @@
 		private System.Windows.Forms.TextBox textBuscaTitular;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button relatorioButton;
+		private System.Windows.Forms.Button buttonXML;
 	}
 }
 

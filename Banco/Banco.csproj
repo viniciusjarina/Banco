@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Busca\GeradorDeDevedores.cs" />
     <Compile Include="Cliente\Cliente.cs" />
+    <Compile Include="Contas\Class1.cs" />
     <Compile Include="Contas\Conta.cs" />
     <Compile Include="Contas\ContaCorrente.cs" />
     <Compile Include="Contas\ContaPoupanca.cs" />

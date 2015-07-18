@@ -25,7 +25,7 @@ namespace Banco.Contas
 
 		public int Numero { get; set; }
 
-		public double  Saldo { get; protected set; }
+		public double  Saldo { get; set; }
 
 		public Cliente Titular { get; set; }
 
