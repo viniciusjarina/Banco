@@ -28,6 +28,7 @@
 		private void InitializeComponent ()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.totalizarTributosButton = new System.Windows.Forms.Button();
 			this.totalizarContasButton = new System.Windows.Forms.Button();
 			this.sacaButton = new System.Windows.Forms.Button();
 			this.depositaButton = new System.Windows.Forms.Button();
@@ -40,10 +41,12 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.cadastrarContaButton = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.comboContas = new System.Windows.Forms.ComboBox();
-			this.cadastrarContaButton = new System.Windows.Forms.Button();
-			this.totalizarTributosButton = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.textBuscaTitular = new System.Windows.Forms.TextBox();
+			this.buscaButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -62,16 +65,26 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(17, 67);
+			this.groupBox1.Location = new System.Drawing.Point(17, 95);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(409, 267);
+			this.groupBox1.Size = new System.Drawing.Size(409, 269);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Conta";
 			// 
+			// totalizarTributosButton
+			// 
+			this.totalizarTributosButton.Location = new System.Drawing.Point(291, 239);
+			this.totalizarTributosButton.Name = "totalizarTributosButton";
+			this.totalizarTributosButton.Size = new System.Drawing.Size(104, 23);
+			this.totalizarTributosButton.TabIndex = 11;
+			this.totalizarTributosButton.Text = "Tota&lizar Tributos";
+			this.totalizarTributosButton.UseVisualStyleBackColor = true;
+			this.totalizarTributosButton.Click += new System.EventHandler(this.totalizarTributosButton_Click);
+			// 
 			// totalizarContasButton
 			// 
-			this.totalizarContasButton.Location = new System.Drawing.Point(291, 204);
+			this.totalizarContasButton.Location = new System.Drawing.Point(291, 205);
 			this.totalizarContasButton.Name = "totalizarContasButton";
 			this.totalizarContasButton.Size = new System.Drawing.Size(104, 23);
 			this.totalizarContasButton.TabIndex = 10;
@@ -81,7 +94,7 @@
 			// 
 			// sacaButton
 			// 
-			this.sacaButton.Location = new System.Drawing.Point(105, 204);
+			this.sacaButton.Location = new System.Drawing.Point(105, 205);
 			this.sacaButton.Name = "sacaButton";
 			this.sacaButton.Size = new System.Drawing.Size(75, 23);
 			this.sacaButton.TabIndex = 9;
@@ -91,7 +104,7 @@
 			// 
 			// depositaButton
 			// 
-			this.depositaButton.Location = new System.Drawing.Point(21, 204);
+			this.depositaButton.Location = new System.Drawing.Point(21, 205);
 			this.depositaButton.Name = "depositaButton";
 			this.depositaButton.Size = new System.Drawing.Size(75, 23);
 			this.depositaButton.TabIndex = 8;
@@ -101,7 +114,7 @@
 			// 
 			// valorText
 			// 
-			this.valorText.Location = new System.Drawing.Point(80, 156);
+			this.valorText.Location = new System.Drawing.Point(80, 157);
 			this.valorText.Name = "valorText";
 			this.valorText.Size = new System.Drawing.Size(315, 20);
 			this.valorText.TabIndex = 7;
@@ -109,7 +122,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(21, 159);
+			this.label4.Location = new System.Drawing.Point(21, 160);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(31, 13);
 			this.label4.TabIndex = 6;
@@ -117,7 +130,7 @@
 			// 
 			// numeroText
 			// 
-			this.numeroText.Location = new System.Drawing.Point(80, 59);
+			this.numeroText.Location = new System.Drawing.Point(80, 60);
 			this.numeroText.Name = "numeroText";
 			this.numeroText.ReadOnly = true;
 			this.numeroText.Size = new System.Drawing.Size(315, 20);
@@ -125,7 +138,7 @@
 			// 
 			// saldoText
 			// 
-			this.saldoText.Location = new System.Drawing.Point(80, 94);
+			this.saldoText.Location = new System.Drawing.Point(80, 95);
 			this.saldoText.Name = "saldoText";
 			this.saldoText.ReadOnly = true;
 			this.saldoText.Size = new System.Drawing.Size(315, 20);
@@ -133,7 +146,7 @@
 			// 
 			// titularText
 			// 
-			this.titularText.Location = new System.Drawing.Point(80, 26);
+			this.titularText.Location = new System.Drawing.Point(80, 27);
 			this.titularText.Name = "titularText";
 			this.titularText.ReadOnly = true;
 			this.titularText.Size = new System.Drawing.Size(315, 20);
@@ -142,7 +155,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(21, 98);
+			this.label3.Location = new System.Drawing.Point(21, 99);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(34, 13);
 			this.label3.TabIndex = 4;
@@ -151,7 +164,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(21, 63);
+			this.label2.Location = new System.Drawing.Point(21, 64);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(44, 13);
 			this.label2.TabIndex = 2;
@@ -160,7 +173,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(21, 30);
+			this.label1.Location = new System.Drawing.Point(21, 31);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(36, 13);
 			this.label1.TabIndex = 0;
@@ -168,15 +181,28 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.buscaButton);
+			this.groupBox2.Controls.Add(this.textBuscaTitular);
+			this.groupBox2.Controls.Add(this.label6);
 			this.groupBox2.Controls.Add(this.cadastrarContaButton);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.comboContas);
 			this.groupBox2.Location = new System.Drawing.Point(17, 13);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(409, 48);
+			this.groupBox2.Size = new System.Drawing.Size(409, 76);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "&Busca";
+			// 
+			// cadastrarContaButton
+			// 
+			this.cadastrarContaButton.Location = new System.Drawing.Point(320, 19);
+			this.cadastrarContaButton.Name = "cadastrarContaButton";
+			this.cadastrarContaButton.Size = new System.Drawing.Size(75, 23);
+			this.cadastrarContaButton.TabIndex = 2;
+			this.cadastrarContaButton.Text = "Cadastrar...";
+			this.cadastrarContaButton.UseVisualStyleBackColor = true;
+			this.cadastrarContaButton.Click += new System.EventHandler(this.cadastrarContaButton_Click);
 			// 
 			// label5
 			// 
@@ -191,37 +217,43 @@
 			// 
 			this.comboContas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboContas.FormattingEnabled = true;
-			this.comboContas.Location = new System.Drawing.Point(80, 20);
+			this.comboContas.Location = new System.Drawing.Point(118, 20);
 			this.comboContas.Name = "comboContas";
-			this.comboContas.Size = new System.Drawing.Size(234, 21);
+			this.comboContas.Size = new System.Drawing.Size(196, 21);
 			this.comboContas.TabIndex = 1;
 			this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
 			// 
-			// cadastrarContaButton
+			// label6
 			// 
-			this.cadastrarContaButton.Location = new System.Drawing.Point(320, 19);
-			this.cadastrarContaButton.Name = "cadastrarContaButton";
-			this.cadastrarContaButton.Size = new System.Drawing.Size(75, 23);
-			this.cadastrarContaButton.TabIndex = 2;
-			this.cadastrarContaButton.Text = "Cadastrar...";
-			this.cadastrarContaButton.UseVisualStyleBackColor = true;
-			this.cadastrarContaButton.Click += new System.EventHandler(this.cadastrarContaButton_Click);
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(22, 50);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(89, 13);
+			this.label6.TabIndex = 3;
+			this.label6.Text = "&Busca por Nome:";
 			// 
-			// totalizarTributosButton
+			// textBuscaTitular
 			// 
-			this.totalizarTributosButton.Location = new System.Drawing.Point(291, 238);
-			this.totalizarTributosButton.Name = "totalizarTributosButton";
-			this.totalizarTributosButton.Size = new System.Drawing.Size(104, 23);
-			this.totalizarTributosButton.TabIndex = 11;
-			this.totalizarTributosButton.Text = "Tota&lizar Tributos";
-			this.totalizarTributosButton.UseVisualStyleBackColor = true;
-			this.totalizarTributosButton.Click += new System.EventHandler(this.totalizarTributosButton_Click);
+			this.textBuscaTitular.Location = new System.Drawing.Point(118, 48);
+			this.textBuscaTitular.Name = "textBuscaTitular";
+			this.textBuscaTitular.Size = new System.Drawing.Size(196, 20);
+			this.textBuscaTitular.TabIndex = 4;
+			// 
+			// buscaButton
+			// 
+			this.buscaButton.Location = new System.Drawing.Point(320, 46);
+			this.buscaButton.Name = "buscaButton";
+			this.buscaButton.Size = new System.Drawing.Size(75, 23);
+			this.buscaButton.TabIndex = 5;
+			this.buscaButton.Text = "B&uscar";
+			this.buscaButton.UseVisualStyleBackColor = true;
+			this.buscaButton.Click += new System.EventHandler(this.buscaButton_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(442, 346);
+			this.ClientSize = new System.Drawing.Size(441, 376);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "Form1";
@@ -254,6 +286,9 @@
 		private System.Windows.Forms.ComboBox comboContas;
 		private System.Windows.Forms.Button cadastrarContaButton;
 		private System.Windows.Forms.Button totalizarTributosButton;
+		private System.Windows.Forms.Button buscaButton;
+		private System.Windows.Forms.TextBox textBuscaTitular;
+		private System.Windows.Forms.Label label6;
 	}
 }
 

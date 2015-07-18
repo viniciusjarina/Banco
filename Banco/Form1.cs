@@ -15,6 +15,8 @@ namespace Banco
 {
 	public partial class Form1 : Form
 	{
+		private Dictionary<string, Conta> dicionario;
+
 		List<Conta> contas = new List<Conta> ();
 		Conta contaSelectionada = null;
 
@@ -122,39 +124,38 @@ namespace Banco
 			AtualizaSaldoDaConta ();
 		}
 
-		void AtualizaComboContas ()
+		void AdicionaConta (Conta conta)
 		{
-			// Remove os elementos existentes antes de atualizar.
-			comboContas.Items.Clear ();
+			contas.Add (conta);
+			comboContas.Items.Add (conta);
 
-			foreach (Conta conta in contas)
-				comboContas.Items.Add (conta);
+			dicionario.Add (conta.Titular.Nome, conta);
 		}
 
 		private void Form1_Load (object sender, EventArgs e)
 		{
+			dicionario = new Dictionary<string, Conta> ();
 			// Form1_Load é chamado quando exibimos o nosso Form pela primeira vez
 			Conta conta = new ContaCorrente ();
 			conta.Titular.Nome = "Anders Hejlsberg";
 			conta.Deposita (1000.1);
-			contas.Add (conta);
+			AdicionaConta (conta);
 
 			conta = new ContaCorrente ();
 			conta.Titular.Nome = "Guilherme Silveira";
 			conta.Deposita (200);
-			contas.Add (conta);
+			AdicionaConta (conta);
 
 			conta = new ContaPoupanca ();
 			conta.Titular.Nome = "Mauricio Aniche";
 			conta.Deposita (300);
-			contas.Add (conta);
+			AdicionaConta (conta);
 
 			conta = new ContaCorrente ();
 			conta.Titular.Nome = "Victor Harada";
-			contas.Add (conta);
+			AdicionaConta (conta);
 
 			AtualizaConta ();
-			AtualizaComboContas ();
 
 			comboContas.SelectedIndex = 0;
 		}
@@ -176,9 +177,8 @@ namespace Banco
 
 			Conta novaConta = new ContaCorrente ();
 			novaConta.Titular.Nome = editar.titularNome.Text;
-			contas.Add(novaConta);
 
-			AtualizaComboContas ();
+			AdicionaConta (novaConta);
 		}
 
 		private void totalizarTributosButton_Click (object sender, EventArgs e)
@@ -191,6 +191,23 @@ namespace Banco
 			MessageBox.Show ("Total: " + totalizador.Total); 
 			totalizador.Adiciona (sv);
 			MessageBox.Show ("Total: " + totalizador.Total);
+		}
+
+		private void buscaButton_Click (object sender, EventArgs e)
+		{
+			string nomeTitular = textBuscaTitular.Text;
+			Conta contaEncontrada = null;
+			// Aqui poderíamos buscar fazendo, no entando se a Conta não existi Dictionary irá lançar uma exceção
+		//  Conta conta = dicionario [nomeTitular];
+
+			// Para isso utilizamos o método TryGetValue que returna true caso encontre o elemento pela chave.
+			if (!dicionario.TryGetValue (nomeTitular, out contaEncontrada)) {
+				// Se TryGetValue retorna false, logo a conta não foi encontrada pelo critério da chave
+				MessageBox.Show ("Conta não encontrada pelo nome:" + nomeTitular);
+				return;
+			}
+
+			comboContas.SelectedItem = contaEncontrada;
 		}
 	}
 }
